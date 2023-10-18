@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:400,700&display=swap');
+
+:root {
+  --body-color: #666;
+  --heading-color: #111;
+  --bg-color: #f9b3d1;
+  --primary: #011638;
+  --secondary: #214e34;
+  --stack-margin-sm: 1em;
+  --stack-margin-md: 2em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+@media (min-width: 90em) {
+  html {
+    font-size: calc(0.2vw + 100%);
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', 'serif';
+  font-weight: 900;
+  margin: 0;
+}
+
+@media (min-width: 60em) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.stack--md * + * {
+  margin-top: var(--stack-margin-md);
+}
+
+.stack--sm * + * {
+  margin-top: var(--stack-margin-sm);
+}
+
+.cta-btn {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 200ms ease-out, box-shadow 150ms ease-out, transform 200ms ease-out;
+  box-shadow: -1px 1px currentcolor, -2px 2px currentcolor, -3px 3px currentcolor, -4px 4px currentcolor;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 2px solid currentcolor;
+}
+
+.cta-btn:hover, .cta-btn:focus {
+  color: var(--primary);
+  box-shadow: -1px 1px currentcolor, -2px 2px currentcolor, -3px 3px currentcolor, -4px 4px currentcolor, -5px 5px currentcolor, -6px 6px currentcolor;
+  transform: translateY(-2px);
+}
+
+.cta-btn:active {
+  box-shadow: -1px 1px 0 0 currentcolor;
+  transform: translateY(0);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 0.2em 0.5em;
+}
+
+@media (min-width: 60em) {
+  .nav {
+    padding: 1em 2em;
+  }
+}
+
+.nav__item {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5em;
+  transition: box-shadow 200ms ease-out;
+}
+
+.nav__item:not(.nav__item--brand-logo):hover,
+.nav__item:not(.nav__item--brand-logo):focus,
+.nav__item:not(.nav__item--brand-logo):active {
+  box-shadow: 0px 1px currentcolor, 0px 2px currentcolor, 0px 3px currentcolor, 0px 4px currentcolor;
+}
+
+@media (min-width: 40em) {
+  .nav__item {
+    padding: 0.5em 1em;
+    margin-left: 1.5em;
+  }
+}
+
+.nav__item--brand-logo {
+  margin-left: 0;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--heading-color);
+}
+
+.hero-section {
+  padding: 0.2em 0.5em;
+  display: grid;
+  grid-gap: 2em;
+}
+
+@media (min-width: 60em) {
+  .hero-section {
+    padding: 1em 2em;
+    grid-gap: 4em;
+  }
+}
+
+@media (min-width: 75em) {
+  .hero-section {
+    grid-template-columns: 50ch 1fr;
+    grid-gap: 1em;
+  }
+
+  .hero-section__img {
+    margin-top: 7em;
+  }
+}
+
+@media (min-width: 90em) {
+  .hero-section {
+    grid-template-columns: 65ch 1fr;
+  }
+
+  .hero-section__img {
+    margin-top: 9em;
+  }
+}
+
+.hero-section__text {
+  padding: 1em;
+}
+
+.hero-section__img {
+  padding: 0em;
+}
+
+.hero-section__img img {
+  margin-top: 0rem;
+  max-height: 30rem;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 3.6px 2.2px rgba(0, 0, 0, 0.02), 0 8.6px 5.3px rgba(0, 0, 0, 0.028), 0 16.2px 10px rgba(0, 0, 0, 0.035), 0 28.8px 17.9px rgba(0, 0, 0, 0.042), 0 53.9px 33.4px rgba(0, 0, 0, 0.05), 0 129px 80px rgba(0, 0, 0, 0.07);
+}
+
+.tilt-img {
+  clip-path: inset(0 0 0 100%);
+  opacity: 0;
+  animation: fadeInRight 600ms 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fadeInRight {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 100% 0 100%);
+    opacity: 1;
+  }
+}
+
+.cta-block {
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fadeInBottom 300ms 300ms ease-out forwards;
+}
+
+h1 {
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fadeInBottom 300ms 100ms ease-out forwards;
+}
+
+@keyframes fadeInBottom {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
